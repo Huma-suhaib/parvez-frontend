@@ -4,13 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  border: 2px solid darkgreen;          
-  height: 100%;
-  box-sizing: border-box;
-  box-shadow: 0 0 40px rgba(0, 100, 0, 0.5); 
-}
-
 body {
   background-color: #baed87;
   margin-bottom: 10px;
