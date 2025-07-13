@@ -1,98 +1,119 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { ShopContext } from '../context/ShopContext';
-import { toast } from 'react-toastify';
-import axios from 'axios';
+import React, { useContext, useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import { ShopContext } from '../context/ShopContext'
+import { assets } from '../assets/assets'
+import RelatedProducts from '../components/RelatedProducts'
 
-const ProductDetail = () => {
-  const { productId } = useParams();
-  const { addToCart, backendUrl } = useContext(ShopContext);
-  const [product, setProduct] = useState(null);
-  const [selectedSize, setSelectedSize] = useState('');
+const Product = () => {
+  const { productId } = useParams()
+  const { products, currency, addToCart } = useContext(ShopContext)
+  const [productData, setProductData] = useState(false)
+  const [image, setImage] = useState('')
+  const [size, setSize] = useState('') // now just a string like "S"
+
+  const fetchProductData = async () => {
+    products.forEach((item) => {
+      if (item._id === productId) {
+        setProductData(item)
+        setImage(item.image[0])
+      }
+    })
+  }
 
   useEffect(() => {
-    const fetchProduct = async () => {
-      try {
-        const res = await axios.post(`${backendUrl}/api/product/single`, { productId });
-        if (res.data.success) {
-          setProduct(res.data.product);
-        } else {
-          toast.error(res.data.message);
-        }
-      } catch (error) {
-        toast.error(error.message);
-      }
-    };
+    fetchProductData()
+  }, [productId, products])
 
-    fetchProduct();
-  }, [productId]);
+  return productData ? (
+    <div className='border-t-2 pt-10 transition-opacity ease-in duration-500 opacity-100'>
 
-  const handleAddToCart = () => {
-    if (!selectedSize) {
-      toast.error('Please select a size');
-      return;
-    }
-    addToCart(product._id, selectedSize);
-  };
+      {/* Product Data */}
+      <div className='flex gap-12 sm:gap-12 flex-col sm:flex-row'>
 
-  if (!product) return <div>Loading...</div>;
-
-  return (
-    <div className="flex flex-col md:flex-row items-start gap-10 p-10">
-      {/* Left: Image section */}
-      <div className="flex gap-4">
-        <div className="flex flex-col gap-2">
-          {product.image.map((img, index) => (
-            <img key={index} src={img} alt={`thumb-${index}`} className="w-20 h-20 object-cover" />
-          ))}
-        </div>
-        <div>
-          <img src={product.image[0]} alt="main" className="w-[400px] h-auto rounded-lg" />
-        </div>
-      </div>
-
-      {/* Right: Product info */}
-      <div>
-        <h1 className="text-2xl font-bold mb-2">{product.name}</h1>
-        <div className="flex items-center gap-2 mb-2">
-          <span className="text-red-500">★★★★★</span>
-          <span>({product.reviews || 0})</span>
-        </div>
-        <p className="text-xl font-semibold mb-4">₹{product.price}</p>
-
-        {/* Size selector */}
-        <div className="mb-4">
-          <p className="font-semibold mb-2">Select Size</p>
-          <div className="flex gap-3">
-            {product.sizes.map((size) => (
-              <button
-                key={size}
-                onClick={() => setSelectedSize(size)}
-                className={`px-4 py-2 border rounded ${
-                  selectedSize === size ? 'bg-black text-white' : 'bg-gray-200 text-black'
-                }`}
-              >
-                {size}
-              </button>
+        {/* Product Images */}
+        <div className='flex-1 flex flex-col-reverse gap-3 sm:flex-row'>
+          <div className='flex sm:flex-col overflow-x-auto sm:overflow-y-scroll justify-between sm:justify-normal sm:w-[18.7%] w-full'>
+            {productData.image.map((item, index) => (
+              <img
+                onClick={() => setImage(item)}
+                src={item}
+                key={index}
+                className='w-[24%] sm:w-full sm:mb-3 flex-shrink-0 cursor-pointer'
+                alt=""
+              />
             ))}
+          </div>
+          <div className='w-full sm:w-[80%]'>
+            <img className='w-full h-auto' src={image} alt="" />
           </div>
         </div>
 
-        {/* Add to cart button */}
-        <button
-          onClick={handleAddToCart}
-          className="bg-black text-white px-6 py-2 mt-4 rounded hover:opacity-90"
-        >
-          ADD TO CART
-        </button>
+        {/* Product Info */}
+        <div className='flex-1'>
+          <h1 className='font-medium text-2xl mt-2'>{productData.name}</h1>
+          <div className='flex items-center gap-1 mt-2'>
+            {[...Array(5)].map((_, i) => (
+              <img
+                key={i}
+                src={i < Math.floor(productData.rating) ? assets.star_icon : assets.star_dull_icon}
+                alt=""
+                className="w-3.5"
+              />
+            ))}
+            <p className='pl-2'>({productData.reviews || 0})</p>
+          </div>
 
-        <p className="mt-4 text-sm text-gray-600">
-          100% Original product. <br />
-          Easy return and exchange policy within 7 days.
-        </p>
+          <p className='mt-5 text-3xl font-medium'>{currency}{productData.price}</p>
+
+          {/* Size Selection */}
+          <div className='flex flex-col gap-4 my-8'>
+            <p>Select Size</p>
+            <div className='flex gap-2 flex-wrap'>
+              {productData.sizes.map((item, index) => (
+                <button
+                  onClick={() => setSize(item)}
+                  className={`border py-2 px-4 bg-gray-100 ${size === item ? 'border-black font-semibold' : ''}`}
+                  key={index}
+                >
+                  {item}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Add to cart */}
+          <button
+            onClick={() => addToCart(productData._id, size)}
+            className='bg-black text-white px-8 py-3 text-sm active:bg-gray-700'
+          >
+            ADD TO CART
+          </button>
+
+          <hr className='mt-8 sm:w-4/5' />
+          <div className='text-sm text-gray-500 mt-5 flex flex-col gap-1'>
+            <p>100% Original product.</p>
+            <p>Easy return and exchange policy within 7 days.</p>
+          </div>
+        </div>
       </div>
-    </div>
-  );
-};
 
-export default ProductDetail;
+      {/* Description */}
+      <div className='mt-20'>
+        <div className='flex'>
+          <b className='border px-5 py-3 text-sm'>Description</b>
+        </div>
+        <div className='flex flex-col gap-4 border px-6 py-6 text-sm text-gray-500'>
+          <p>{productData.description}</p>
+        </div>
+      </div>
+
+      {/* Related Products */}
+      <RelatedProducts category={productData.category} subCategory={productData.subCategory} />
+
+    </div>
+  ) : (
+    <div className='opacity-0'></div>
+  )
+}
+
+export default Product
