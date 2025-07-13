@@ -70,12 +70,15 @@ const Product = () => {
             <div className='flex gap-2 flex-wrap'>
               {productData.sizes.map((item, index) => (
                 <button
-                onClick={() => setSize(item)}
-                className={`border py-2 px-4 bg-gray-100 ${size?.label === item.label ? 'border-orange-500' : ''}`}
-                key={index}
-                >
-                {item.label}
+                  onClick={() => setSize(item)}
+                  className={`border py-2 px-4 bg-white text-gray-900 font-medium rounded-sm shadow-sm transition-all duration-200 hover:border-black ${
+                  size?.label === item.label ? 'border-orange-500 bg-orange-100' : ''
+                  }`}
+                  key={index}
+                  >
+                  {item.label}
                 </button>
+
                 ))}
             </div>
           </div>
