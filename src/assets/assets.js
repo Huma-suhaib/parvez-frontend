@@ -72,7 +72,7 @@ export const products = [
         images: [carpet1,carpet1_1,carpet1_2,carpet1_3],
         category: "Handmade Rugs",
         subCategory: "4X6 ft",
-        sizes: ["S"],
+        // sizes: ["S"],
         price:3600,
         date: Date.now(),
         bestseller: true
@@ -84,7 +84,7 @@ export const products = [
         images: [carpet2,carpet2_1,carpet2_2,carpet2_3],
         category: "Handmade Rugs",
         subCategory: "4X6 ft",
-        sizes: ["S"],
+        // sizes: ["S"],
         price:3600,
         date: Date.now(),
         bestseller: false
@@ -96,7 +96,7 @@ export const products = [
         images: [carpet3,carpet3_1,carpet3_2,carpet3_3],
         category: "Handmade Rugs",
         subCategory: "4X6 ft",
-        sizes: ["S"],
+        // sizes: ["S"],
         price:4800,
         date: Date.now(),
         bestseller: false
@@ -108,7 +108,7 @@ export const products = [
         images: [carpet4,carpet4_1,carpet4_2,carpet4_3],
         category: "Handmade Rugs",
         subCategory: "4X6 ft",
-        sizes: ["S"],
+        // sizes: ["S"],
         price:4800,
         date: Date.now(),
         bestseller: false
@@ -120,7 +120,7 @@ export const products = [
         images: [carpet5,carpet5_1,carpet5_2,carpet5_3],
         category: "Handmade Rugs",
         subCategory: "4X6 ft",
-        sizes: ["S"],
+        // sizes: ["S"],
         price:4800,
         date: Date.now(),
         bestseller: false
@@ -132,7 +132,7 @@ export const products = [
         images: [carpet6,carpet6_1,carpet6_2,carpet6_3],
         category: "Handmade Rugs",
         subCategory: "4X6 ft",
-        sizes: ["S"],
+        // sizes: ["S"],
         price:3600,
         date: Date.now(),
         bestseller: false
