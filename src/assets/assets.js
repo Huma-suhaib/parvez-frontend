@@ -72,12 +72,8 @@ export const products = [
         images: [carpet1,carpet1_1,carpet1_2,carpet1_3],
         category: "Handmade Rugs",
         subCategory: "4X6 ft",
-        sizes: [
-            { label: "4x6 ft", price: 3600 },
-            { label: "5x7 ft", price: 5250 },
-            { label: "6x9 ft", price: 10800 },
-            { label: "8x10 ft", price: 12000 }
-        ],
+        sizes: ["S"],
+        price:3600,
         date: Date.now(),
         bestseller: true
     },
@@ -88,12 +84,8 @@ export const products = [
         images: [carpet2,carpet2_1,carpet2_2,carpet2_3],
         category: "Handmade Rugs",
         subCategory: "4X6 ft",
-        sizes: [
-            { label: "4x6 ft", price: 3600 },
-            { label: "5x7 ft", price: 5250 },
-            { label: "6x9 ft", price: 10800 },
-            { label: "8x10 ft", price: 12000 }
-        ],
+        sizes: ["S"],
+        price:3600,
         date: Date.now(),
         bestseller: false
     },
@@ -104,12 +96,8 @@ export const products = [
         images: [carpet3,carpet3_1,carpet3_2,carpet3_3],
         category: "Handmade Rugs",
         subCategory: "4X6 ft",
-        sizes: [
-            { label: "4x6 ft", price: 4800 },
-            { label: "5x7 ft", price: 7000 },
-            { label: "6x9 ft", price: 14400 },
-            { label: "8x10 ft", price: 16000 }
-        ],
+        sizes: ["S"],
+        price:4800,
         date: Date.now(),
         bestseller: false
     },
@@ -120,12 +108,8 @@ export const products = [
         images: [carpet4,carpet4_1,carpet4_2,carpet4_3],
         category: "Handmade Rugs",
         subCategory: "4X6 ft",
-        sizes: [
-            { label: "4x6 ft", price: 4800 },
-            { label: "5x7 ft", price: 7000 },
-            { label: "6x9 ft", price: 14400 },
-            { label: "8x10 ft", price: 16000 }
-        ],
+        sizes: ["S"],
+        price:4800,
         date: Date.now(),
         bestseller: false
     },
@@ -136,12 +120,8 @@ export const products = [
         images: [carpet5,carpet5_1,carpet5_2,carpet5_3],
         category: "Handmade Rugs",
         subCategory: "4X6 ft",
-        sizes: [
-            { label: "4x6 ft", price: 4800 },
-            { label: "5x7 ft", price: 7000 },
-            { label: "6x9 ft", price: 14400 },
-            { label: "8x10 ft", price: 16000 }
-        ],
+        sizes: ["S"],
+        price:4800,
         date: Date.now(),
         bestseller: false
     },
@@ -152,12 +132,8 @@ export const products = [
         images: [carpet6,carpet6_1,carpet6_2,carpet6_3],
         category: "Handmade Rugs",
         subCategory: "4X6 ft",
-        sizes: [
-            { label: "4x6 ft", price: 3600 },
-            { label: "5x7 ft", price: 5250 },
-            { label: "6x9 ft", price: 10800 },
-            { label: "8x10 ft", price: 12000 }
-        ],
+        sizes: ["S"],
+        price:3600,
         date: Date.now(),
         bestseller: false
     },
