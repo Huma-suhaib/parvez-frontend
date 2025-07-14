@@ -20,7 +20,7 @@ const NewsletterBox = () => {
   };
 
   return (
-    <div className='text-center bg-gray-500 py-12'>
+    <div className='text-center bg-gray-300 py-12'>
       <p className='text-2xl font-medium text-gray-800'>Subscribe now & get 20% off</p>
       <p className='text-green-800 mt-3'>
         Get exclusive updates, offers, and new arrivals from Parvez Carpets — straight to your inbox.
