@@ -16,7 +16,7 @@ const Footer = () => {
 
         <div>
             <p className='text-xl font-medium mb-5'>COMPANY</p>
-            <ul className='flex flex-col gap-1 text-green-800'>
+            <ul className='flex flex-col gap-1 text-green-800 text-sm sm:text-base md:text-lg'>
   <Link to='/'><li className='cursor-pointer hover:text-green-800'>Home</li></Link>
   <Link to='/about'><li className='cursor-pointer hover:text-green-800'>About Us</li></Link>
   <Link to='/collection'><li className='cursor-pointer hover:text-green-800'>Shop More</li></Link>
@@ -25,7 +25,7 @@ const Footer = () => {
 
         <div>
             <p className='text-xl font-medium mb-5'>GET IN TOUCH</p>
-            <ul className='flex flex-col gap-1 text-green-800'>
+            <ul className='flex flex-col gap-1 text-green-800 text-sm sm:text-base md:text-lg'>
                 <li>+91 993-648-4049</li>
                 <li>aftab@parvezcarpets.com</li>
             </ul>
