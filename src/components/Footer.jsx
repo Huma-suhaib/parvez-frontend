@@ -8,8 +8,8 @@ const Footer = () => {
       <div className='flex flex-col sm:grid grid-cols-[3fr_1fr_1fr] gap-14 my-10 mt-40 text-sm'>
 
         <div>
-            <img src={assets.logo} className='mb-5 w-32' alt="" />
-            <p className='w-full md:w-2/3 text-green-800'>
+            <img src={assets.logo} className='mb-5 w-40 sm:w-48' alt="" />
+            <p className='w-full md:w-2/3 text-green-800 text-sm sm:text-base md:text-lg'>
             A leading manufacturer and exporter of a superior range of rugs and carpets, which set up in 1989 for manufacture of exclusive products hand made carpets to a discerning export market.
             </p>
         </div>
@@ -35,7 +35,7 @@ const Footer = () => {
 
         <div>
             <hr />
-            <p className='py-5 text-sm text-center text-green-800'>Copyright 2024@parvezcarpets.com - All Right Reserved.</p>
+            <p className='py-5 text-sm text-center text-green-800'>©Parvez Carpets - All Right Reserved.</p>
         </div>
 
     </div>
